@@ -1,4 +1,5 @@
 const API_BASE = "http://localhost:5000/api/players";
+const submitButton = document.getElementById("submitBtn");
 
 // Add or Update Player
 document.getElementById("playerForm").addEventListener("submit", async (event) => {
@@ -35,6 +36,7 @@ document.getElementById("playerForm").addEventListener("submit", async (event) =
     } finally {
         document.getElementById("playerId").value = "";
         document.getElementById("playerForm").reset();
+        submitButton.textContent = "Submit";
     }
 });
 
@@ -114,6 +116,7 @@ async function editPlayer() {
         document.getElementById("wickets").value = player.wickets;
         document.getElementById("average").value = player.average;
 
+        submitButton.textContent = "Update";
         closePopup();
     } catch (error) {
         console.error("Error fetching player:", error);
