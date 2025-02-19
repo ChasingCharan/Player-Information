@@ -58,24 +58,27 @@ async function searchPlayer() {
 function displayPopup(player) {
 
     document.getElementById("bio").innerHTML = `
-        <h3>Bio</h3>
-        <p><strong>Name:</strong> ${player.name}</p>
-        <p><strong>DOB:</strong> ${player.dob}</p>
-        <p><strong>Birthplace:</strong> ${player.birthplace}</p>
-        <p><strong>Fitness:</strong> ${player.fitness}</p>
-        <img src="${player.photoUrl}" alt="Player Photo" width="100">
+        <div class="bio-content">
+            
+            <div class="bio-text">
+                <img src="${player.photoUrl}" alt="Player Photo" class="player-photo">
+                <p><strong>Name:</strong> ${player.name}</p>
+                <p><strong>DOB:</strong> ${player.dob}</p>
+                <p><strong>Birthplace:</strong> ${player.birthplace}</p>
+                <p><strong>Fitness:</strong> ${player.fitness}</p>
+                <p><strong>Matches:</strong> ${player.matches}</p>
+                <p><strong>Score:</strong> ${player.score}</p>
+                <p><strong>Centuries:</strong> ${player.centuries}</p>
+                <p><strong>Wickets:</strong> ${player.wickets}</p>
+                <p><strong>Average:</strong> ${player.average}</p>
+            </div>
+        </div>
     `;
 
     document.getElementById("career").innerHTML = `
-        <h3>Career Info</h3>
-        <p><strong>Matches:</strong> ${player.matches}</p>
-        <p><strong>Score:</strong> ${player.score}</p>
-        <p><strong>Centuries:</strong> ${player.centuries}</p>
-        <p><strong>Wickets:</strong> ${player.wickets}</p>
-        <p><strong>Average:</strong> ${player.average}</p>
         <p><strong>Career Info:</strong> ${player.careerInfo}</p>
     `;
-    
+
     document.getElementById("playerPopup").style.display = "block";
     document.getElementById("playerId").value = player.id;
 

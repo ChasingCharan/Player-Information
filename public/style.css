@@ -6,7 +6,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    overflow-y: auto;
     flex-direction: column;
 }
 
@@ -67,6 +68,8 @@ textarea {
     margin-top: 10px;
 }
 
+
+
 /* Popup Styling */
 .popup {
     position: fixed;
@@ -75,23 +78,75 @@ textarea {
     transform: translate(-50%, -50%);
     background: white;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1000;
-    width: 300px;
-    text-align: center;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bio-container, .career-container {
+    width: 48%;
+}
+
+.bio-content {
+    display: flex;
+    align-items: center;
+}
+
+
+.player-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.bio-text {
+    flex-grow: 1;
 }
 
 .hidden {
-    display: none; /* Hides the popup */
+    display: none;
 }
 
 .close-btn {
     position: absolute;
     top: 10px;
     right: 15px;
+    font-size: 20px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    color: red;
 }
+
+.btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* #career {
+    width: 50%;
+    text-align: left;
+} */
