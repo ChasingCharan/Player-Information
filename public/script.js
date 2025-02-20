@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5000/api/players";
+// const API_BASE = "http://localhost:5000/api/players";
 const submitButton = document.getElementById("submitBtn");
 
 // Add or Update Player
@@ -23,11 +23,11 @@ document.getElementById("playerForm").addEventListener("submit", async (event) =
     try {
         if (playerId) {
             // Update existing player
-            await axios.put(`${API_BASE}/update/${playerId}`, playerData);
+            await axios.put(`/api/players/update/${playerId}`, playerData);
             alert("Player updated successfully!");
         } else {
             // Add new player
-            await axios.post(`${API_BASE}/add`, playerData);
+            await axios.post(`/api/players/add`, playerData);
             alert("Player added successfully!");
         }
     } catch (error) {
@@ -46,7 +46,7 @@ async function searchPlayer() {
     if (!searchName) return alert("Please enter a player name");
 
     try {
-        const response = await axios.get(`${API_BASE}/search?name=${searchName}`);
+        const response = await axios.get(`/api/players/search?name=${searchName}`);
         displayPopup(response.data);
     } catch (error) {
         console.error("Error searching player:", error);
@@ -101,7 +101,7 @@ async function editPlayer() {
     }
 
     try {
-        const response = await axios.get(`${API_BASE}/search/${playerId}`);
+        const response = await axios.get(`/api/players/search/${playerId}`);
         const player = response.data;
 
         document.getElementById("name").value = player.name;
